@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:udemy_flutter/users_screen.dart';
+import 'package:udemy_flutter/counter_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: UsersScreen(),
+      home: CounterScreen(),
     );
   }
 }
