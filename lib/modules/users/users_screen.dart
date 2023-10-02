@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-
-class UserModel {
-  final int id;
-  final String name;
-  final String phone;
-  UserModel({required this.id, required this.name, required this.phone});
-}
+import 'package:udemy_flutter/models/user/user_model.dart';
 
 class UsersScreen extends StatelessWidget {
   List<UserModel> users = [
@@ -16,6 +10,7 @@ class UsersScreen extends StatelessWidget {
     UserModel(id: 5, name: 'SKANDER BEN HMIDA', phone: '+4917007876376'),
     UserModel(id: 6, name: 'ABDULLAH MANSOUR', phone: '+4917655098765'),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
