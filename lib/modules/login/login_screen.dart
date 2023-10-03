@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:udemy_flutter/shared/components/components.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
-  // const LoginScreen({super.key});
+  //const LoginScreen({super.key});
+  bool isPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +63,14 @@ class LoginScreen extends StatelessWidget {
                     },
                     label: 'Password',
                     prefix: Icons.lock,
-                    suffix: Icons.remove_red_eye,
-                    isPassword: true,
+                    suffix:
+                        isPassword ? Icons.visibility : Icons.visibility_off,
+                    isPassword: isPassword,
+                    suffixPressed: () {
+                      setState(() {
+                        isPassword = !isPassword;
+                      });
+                    },
                   ),
                   const SizedBox(
                     height: 30.0,

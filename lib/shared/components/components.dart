@@ -35,6 +35,7 @@ Widget defaultFromField({
   required IconData prefix,
   bool isPassword = false,
   IconData? suffix,
+  VoidCallback? suffixPressed,
 }) =>
     TextFormField(
         controller: controller,
@@ -43,7 +44,12 @@ Widget defaultFromField({
         decoration: InputDecoration(
           labelText: label,
           prefixIcon: Icon(prefix),
-          suffixIcon: suffix != null ? Icon(suffix) : null,
+          suffixIcon: suffix != null
+              ? IconButton(
+                  icon: Icon(suffix),
+                  onPressed: suffixPressed,
+                )
+              : null,
           border: const OutlineInputBorder(),
         ),
         validator: validate);
@@ -86,3 +92,18 @@ Widget defaultFromField({
                   ),               
                 
                 */
+
+                /*defaultFromField(
+                    controller: passwordController,
+                    type: TextInputType.visiblePassword,
+                    validate: (value) {
+                      if (value!.isEmpty) {
+                        return 'password must not be empty';
+                      }
+                      return null;
+                    },
+                    label: 'Password',
+                    prefix: Icons.lock,
+                    suffix: Icons.remove_red_eye,
+                    isPassword: true,
+                  ),*/
